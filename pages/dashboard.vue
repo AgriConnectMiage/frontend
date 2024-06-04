@@ -1,6 +1,5 @@
 <template>
     <div>
-        <h1>Inventory</h1>
-        <p>Here is the inventory page</p>
+        <h1>Dashboard</h1>
     </div>
 </template>
