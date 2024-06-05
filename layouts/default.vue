@@ -1,7 +1,7 @@
 <template>
   <div class="flex h-screen w-screen bg-green-100">
     <div
-      class="w-56 h-full bg-white flex flex-col items-center overflow-hidden"
+      class="hidden md:flex md:w-56 h-full bg-white flex-col items-center overflow-hidden"
     >
       <img src="/assets/logo.svg" alt="logo" class="w-24 h-24" />
       <div class="flex flex-col gap-4 mt-4">
