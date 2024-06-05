@@ -1,9 +1,9 @@
 <template>
   <div class="flex h-screen w-screen bg-green-100">
     <div
-      class="w-56 h-full bg-white flex flex-col items-center overflow-hidden"
+      class="hidden md:flex md:w-56 h-full bg-white flex-col items-center overflow-hidden"
     >
-      <img src="/logo.svg" alt="logo" class="w-24 h-24" />
+      <img src="/assets/logo.svg" alt="logo" class="w-24 h-24" />
       <div class="flex flex-col gap-4 mt-4">
         <UButton
           v-for="button in BUTTONS"
@@ -14,13 +14,13 @@
           :icon="button.icon"
           variant="ghost"
           class="w-full text-center"
-          :active-class="'bg-[#E4E9E4]'"
+          :active-class="'bg-green-100'"
         >
           {{ button.label }}
         </UButton>
       </div>
     </div>
-    <div class="flex flex-1 p-4 bg-[#E4E9E4] overflow-auto">
+    <div class="flex flex-1 p-8 bg-[#E4E9E4] overflow-auto">
       <slot />
     </div>
   </div>
@@ -33,6 +33,7 @@ const BUTTONS = [
     icon: "i-heroicons-archive-box-solid",
   },
   { label: "Dashboard", to: "/dashboard", icon: "i-heroicons-chart-pie-solid" },
+  { label: "Sandbox", to: "/sandbox", icon: "i-heroicons-play-circle" },
   { label: "Settings", to: "/settings", icon: "i-heroicons-cog-solid" },
 ];
 </script>
