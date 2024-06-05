@@ -14,7 +14,7 @@
           :icon="button.icon"
           variant="ghost"
           class="w-full text-center"
-          :active-class="'bg-[#E4E9E4]'"
+          :active-class="'bg-green-100'"
         >
           {{ button.label }}
         </UButton>

@@ -3,9 +3,9 @@ import Cell from "~/components/inventory/field/Cell.vue";
 </script>
 
 <template>
-  <div class="flex flex-col gap-2 w-1/2 overflow-auto">
-    <div v-for="i in 8" :key="i" class="flex gap-2">
-      <Cell v-for="j in 8" :key="j" />
+  <div class="flex flex-col w-full h-[600px] gap-2 overflow-auto lg:w-1/2">
+    <div v-for="i in 14" :key="i" class="flex gap-2">
+      <Cell v-for="j in 12" :key="j" />
     </div>
   </div>
 </template>
