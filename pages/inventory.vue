@@ -2,7 +2,7 @@
   <div class="w-full h-full">
     <UButton
       icon="i-heroicons-question-mark-circle"
-      class="mt-2 mb-4"
+      class="my-2"
       @click="isOpen = true"
       >How does it work?</UButton
     >
@@ -32,7 +32,7 @@
         <template #default> Some explanations about the screen. </template>
       </UCard>
     </UModal>
-    <div class="flex flex-col gap-4 lg:flex-row">
+    <div class="flex flex-col gap-2 lg:flex-row">
       <InventoryFieldContainer />
       <InventoryDeviceContainer />
     </div>
