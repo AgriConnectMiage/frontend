@@ -10,7 +10,11 @@
     </div>
     <StylingTitle>🏭 Generator</StylingTitle>
     <div class="flex flex-wrap gap-4">
-      <GeneratorCard v-for="generator in generators" :title="generator.title" />
+      <GeneratorCard
+        v-for="generator in generators"
+        :title="generator.title"
+        @sendValue="handleEvent(generator.path, $event)"
+      />
     </div>
   </div>
 </template>
@@ -23,9 +27,13 @@ const classicStats = [
 ];
 
 const generators = [
-  { title: "🧑‍🌾 Farmers" },
-  { title: "🌾 Fields" },
-  { title: "📡 Sensors" },
-  { title: "💧 Actuators" },
+  { title: "🧑‍🌾 Farmers", path: "farmers" },
+  { title: "🌾 Fields", path: "fields" },
+  { title: "📡 Sensors", path: "sensors" },
+  { title: "💧 Actuators", path: "actuators" },
 ];
+
+const handleEvent = (path: string, value: number) => {
+  console.log(path, value);
+};
 </script>
