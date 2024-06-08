@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col flex-1 gap-2">
+  <div class="flex flex-1 flex-col gap-2">
     <UCard class="h-fit" v-for="card in cards">
       <template #header>
         <span class="text-lg font-bold">{{ card.title }}</span>

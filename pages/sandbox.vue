@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-full flex flex-col gap-4">
+  <div class="flex h-full w-full flex-col gap-4">
     <StylingTitle>📈 Basic Stats</StylingTitle>
     <div class="flex flex-wrap gap-4">
       <DashboardStatsCard

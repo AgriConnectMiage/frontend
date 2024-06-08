@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col gap-4">
     <div class="flex flex-col items-center gap-6">
-      <div class="flex flex-col gap-2 items-center">
+      <div class="flex flex-col items-center gap-2">
         <span class="text-4xl font-bold">AgriConnectMiage</span>
         <span class="text-xl font-light">Vive la MIAGE</span>
       </div>

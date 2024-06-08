@@ -25,11 +25,11 @@ const props = defineProps({
     class="w-fit"
   >
     <template #header>
-      <div class="text-xl truncate">
+      <div class="truncate text-xl">
         {{ props.title }}
       </div></template
     >
-    <div class="text-2xl font-bold p-0">
+    <div class="p-0 text-2xl font-bold">
       {{ props.value }}
     </div>
   </UCard>

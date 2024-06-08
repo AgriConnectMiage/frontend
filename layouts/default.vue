@@ -1,10 +1,10 @@
 <template>
   <div class="flex h-screen w-screen bg-green-100">
     <div
-      class="hidden md:flex md:w-56 h-full bg-white flex-col items-center overflow-hidden"
+      class="hidden h-full flex-col items-center overflow-hidden bg-white md:flex md:w-56"
     >
-      <img src="/assets/logo.svg" alt="logo" class="w-24 h-24" />
-      <div class="flex flex-col gap-4 mt-4">
+      <img src="/assets/logo.svg" alt="logo" class="h-24 w-24" />
+      <div class="mt-4 flex flex-col gap-4">
         <UButton
           v-for="button in BUTTONS"
           color="gray"
@@ -20,7 +20,7 @@
         </UButton>
       </div>
     </div>
-    <div class="flex flex-1 p-8 bg-[#E4E9E4] overflow-auto">
+    <div class="flex flex-1 overflow-auto bg-[#E4E9E4] p-8">
       <slot />
     </div>
   </div>

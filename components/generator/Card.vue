@@ -9,7 +9,7 @@ const value = ref();
 <template>
   <UCard>
     <template #header>
-      <div class="text-xl truncate">{{ props.title }}</div>
+      <div class="truncate text-xl">{{ props.title }}</div>
     </template>
     <UButtonGroup size="md" orientation="horizontal">
       <UInput placeholder="0" v-model="value" />
