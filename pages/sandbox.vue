@@ -1,9 +1,10 @@
 <template>
   <div class="flex h-full w-full flex-col gap-4">
     <StylingTitle>📈 Basic Stats</StylingTitle>
+
     <div class="flex flex-wrap gap-4">
       <DashboardStatsCard
-        v-for="stat in classicStats"
+        v-for="stat in stats"
         :key="stat.title"
         :title="stat.title"
         :value="stat.value"
@@ -22,12 +23,12 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
-import { useFetch } from "@vueuse/core"; // Assuming you are using vueuse for data fetching
-import type { Actuator, Farmer, Field, Sensor } from "~/types/types";
+import { computed } from "vue";
 import { generatorService } from "~/service/generator-service";
-
-const classicStats = ref<{ title: string; value: number }[]>([]);
+import { farmerService } from "~/service/farmer-service";
+import { fieldService } from "~/service/field-service";
+import { sensorService } from "~/service/sensor-service";
+import { actuatorService } from "~/service/actuator-service";
 
 const generators = [
   { title: "🧑‍🌾 Farmers", path: "farmers" },
@@ -41,46 +42,43 @@ const handleEvent = (path: string, value: number) => {
     case "farmers":
       generatorService.generateFarmer();
       break;
-    case "fields":
-      classicStats.value[1].value += value;
-      break;
-    case "sensors":
-      classicStats.value[2].value += value;
-      break;
-    case "actuators":
-      classicStats.value[3].value += value;
-      break;
   }
 };
 
-const fetchData = async () => {
-  try {
-    const responses = await Promise.all([
-      useFetch<Farmer[]>("http://localhost/api/management/farmers").json(),
-      useFetch<Field[]>("http://localhost/api/management/fields").json(),
-      useFetch<Sensor[]>("http://localhost/api/management/sensors").json(),
-      useFetch<Actuator[]>("http://localhost/api/management/actuators").json(),
-    ]);
+const { data: farmers, pending: farmersPending } = await useAsyncData(
+  "farmers",
+  () => farmerService.getAllFarmers(),
+);
 
-    const [farmers, fields, sensors, actuators] = responses.map(
-      (response) => response.data.value,
-    );
+const { data: fields, pending: fieldsPending } = await useAsyncData(
+  "fields",
+  () => fieldService.getAllFields(),
+);
 
-    classicStats.value = [
-      {
-        title: "🧑‍🌾 Farmers",
-        value: farmers.length,
-      },
-      { title: "🌾 Fields", value: fields.length },
-      { title: "📡 Sensors", value: sensors.length },
-      { title: "💧 Actuators", value: actuators.length },
-    ];
-  } catch (error) {
-    console.error("Error fetching data", error);
+const { data: sensors, pending: sensorsPending } = await useAsyncData(
+  "sensors",
+  () => sensorService.getAllSensors(),
+);
+
+const { data: actuators, pending: actuatorsPending } = await useAsyncData(
+  "actuators",
+  () => actuatorService.getAllActuators(),
+);
+
+const stats = computed(() => {
+  if (
+    farmersPending.value ||
+    fieldsPending.value ||
+    sensorsPending.value ||
+    actuatorsPending.value
+  ) {
+    return [];
   }
-};
-
-onMounted(() => {
-  fetchData();
+  return [
+    { title: "Farmers", value: farmers.value?.length ?? 0 },
+    { title: "Fields", value: fields.value?.length ?? 0 },
+    { title: "Sensors", value: sensors.value?.length ?? 0 },
+    { title: "Actuators", value: actuators.value?.length ?? 0 },
+  ];
 });
 </script>

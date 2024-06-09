@@ -11,14 +11,14 @@ const value = ref();
     <template #header>
       <div class="truncate text-xl">{{ props.title }}</div>
     </template>
-    <UButtonGroup size="md" orientation="horizontal">
-      <UInput placeholder="0" v-model="value" />
+    <div class="flex items-center justify-center">
       <UButton
-        icon="i-heroicons-arrow-right-circle-16-solid"
+        size="xl"
+        icon="i-heroicons-plus-circle-16-solid"
         color="gray"
         @click="$emit('sendValue', value)"
       />
-    </UButtonGroup>
+    </div>
   </UCard>
 </template>
 
