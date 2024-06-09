@@ -1,5 +1,4 @@
 import { faker } from "@faker-js/faker";
-import { $fetch } from "ofetch";
 
 const generateFarmer = async () => {
   const farmer = {
@@ -9,9 +8,12 @@ const generateFarmer = async () => {
     password: faker.internet.password(),
     fieldSize: faker.number.int({ min: 1, max: 5 }),
   };
-  await $fetch("http://localhost/api/management/farmers", {
+  return $fetch("http://localhost/api/management/farmers", {
     method: "POST",
     body: farmer,
+    async onResponse() {
+      await refreshNuxtData("farmers");
+    },
   });
 };
 
