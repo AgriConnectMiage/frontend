@@ -1,7 +1,7 @@
 <template>
-    <div class="flex flex-col items-center h-screen w-screen bg-green-100">
-        <div class="p-4 w-full max-w-7xl">
-            <slot />
-        </div>
+  <div class="flex h-screen w-screen flex-col items-center bg-green-100">
+    <div class="w-full max-w-7xl p-4">
+      <slot />
     </div>
+  </div>
 </template>

@@ -35,7 +35,7 @@ const getHumidity = computed(() => {
 <template>
   <ClientOnly>
     <div
-      class="min-w-16 min-h-16 rounded-lg transition-all flex items-center justify-center hover:opacity-50 hover:cursor-pointer"
+      class="flex min-h-16 min-w-16 items-center justify-center rounded-lg transition-all hover:cursor-pointer hover:opacity-50"
       :style="getTemperatureStyle"
     >
       {{ getHumidity }}

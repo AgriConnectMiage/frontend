@@ -1,7 +1,9 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div class="h-full w-full bg-neutral-900"></div>
+  <div class="my-2 text-2xl font-bold">
+    <slot />
+  </div>
 </template>
 
 <style scoped></style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-full">
+  <div class="h-full w-full">
     <UButton
       icon="i-heroicons-question-mark-circle"
       class="my-2"
