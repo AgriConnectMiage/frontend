@@ -42,6 +42,17 @@ const handleEvent = (path: string, value: number) => {
     case "farmers":
       generatorService.generateFarmer();
       break;
+    case "fields":
+      generatorService.generateField();
+      break;
+    case "sensors":
+      generatorService.generateSensor();
+      break;
+    case "actuators":
+      generatorService.generateActuator();
+      break;
+    default:
+      break;
   }
 };
 
